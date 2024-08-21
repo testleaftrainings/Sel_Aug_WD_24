@@ -1,0 +1,34 @@
+Parent to child
+basicxpath for parent/tagname of child
+//div[@id='username_container']/input
+
+GrandParent to grandChild
+basicxpath gp //tag name gc 
+//ul[@class='level-first false']//span
+
+child to parent
+basicxpath for child/parent::tag name of parent
+//span[text()='Accounts']/parent::a
+
+
+basic xpath grandChild /ancestor ::tag name grandparent
+//input[@id='src']/ancestor::div[contains(@class,'search-box')]
+
+
+Url: https://login.salesforce.com/
+username: dilip@testleaf.com
+password : testleaf@2024
+
+
+Es to Ys
+//label[text()='Username']/following-sibling::input
+
+
+Ys to Es
+//input[@name='username']/preceding::div[@id='idcard-container']
+
+Ec to Yc
+//input[@id='username']/following::input
+
+Yc to Ec
+//input[@id='password']/preceding::input
