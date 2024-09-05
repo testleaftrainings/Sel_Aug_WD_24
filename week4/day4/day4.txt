@@ -1,0 +1,77 @@
+week4.day4
+
+-Static Parameterization
+-Breakout 
+-Break
+-Dyanmic Parameterization
+-Breakout
+
+
+
+Static Parameterization:
+
+Parameterization- we are not HardCoding values inside java
+
+Static Parameterization:
+Common Data for all the testcase
+BaseClass or PSM
+url,username,password,browser
+
+
+
+Parameterization:
+# No hardcoding of data inside the java classes
+# Preferred to automate them by passing from an external resource testng.xml, excel...
+
+2 types:
+Static: - If it is common across multiple test cases Example: - url, username, password 
+
+Steps to implement Static Parameterization:
+Identify the data that are common across all the test cases
+1.Add parameter tag for each data in the XML file ex:
+url,username,password ,browser
+2.Map the parameters in the class using @Parameters ex: @Parameters({"url","username", "password"})
+Note: The name should exactly match the names in the xml
+3.Use that parameters inside the method using arguments
+ Note: Sequence matters but the name of the arguments does not matter
+4.Finally, replace the arguments with the hardcoded values
+Note: You should always run from the xml file when you use parameters
+
+Dynamic Parameterization:
+1.Identify the data that are need to be dynamic for the particular testcase
+ ex: CreateLead : companyName, firstName, lastName, phoneNumber EditLead : phoneNumber,companyName
+2.Create a method sendData and annotate with @Dataprovider annotation and give a name for the DataProvider
+3.Create an Input array with rowCount and columnCount - add datas into the array with index starting from 0
+4.Return data back to the calling method
+5.Receive the data in the testcase uding dataProvider attribute
+6. Pass input arguments to the test method and replace all the hardcoded data
+
+
+row - how many leads need to create
+columns - 4 values i need pass to the testcase
+
+[3][4]-index start with '0'
+
+[0][0]    ="Testleaf"
+[0][1]    ="Dilip"
+[0][2]    ="Kumar"
+[0][3]    ="98"
+
+
+[1][0]
+[1][1]
+
+Annotation:
+@BS
+@BT
+@BC
+@Dataprovider
+@BM
+@Test
+@AM
+@AC
+@AT
+@AS
+
+
+
