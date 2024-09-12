@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-09-12T12:44:08 IST" name="Suite1" finished-at="2024-09-12T12:44:35 IST" duration-ms="27500">
+    <groups>
+    </groups>
+    <test started-at="2024-09-12T12:44:08 IST" name="Test" finished-at="2024-09-12T12:44:35 IST" duration-ms="27500">
+      <class name="testcase.LoginPage_TC_001">
+        <test-method is-config="true" signature="preCondition()[pri:0, instance:testcase.LoginPage_TC_001@3b6ddd1d]" started-at="2024-09-12T12:44:08 IST" name="preCondition" finished-at="2024-09-12T12:44:18 IST" duration-ms="9560" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- preCondition -->
+        <test-method signature="login()[pri:0, instance:testcase.LoginPage_TC_001@3b6ddd1d]" started-at="2024-09-12T12:44:18 IST" name="login" finished-at="2024-09-12T12:44:23 IST" duration-ms="4876" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method is-config="true" signature="postCondition()[pri:0, instance:testcase.LoginPage_TC_001@3b6ddd1d]" started-at="2024-09-12T12:44:23 IST" name="postCondition" finished-at="2024-09-12T12:44:23 IST" duration-ms="477" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- postCondition -->
+      </class> <!-- testcase.LoginPage_TC_001 -->
+      <class name="testcase.AccountPage_TC_002">
+        <test-method is-config="true" signature="preCondition()[pri:0, instance:testcase.AccountPage_TC_002@21282ed8]" started-at="2024-09-12T12:44:23 IST" name="preCondition" finished-at="2024-09-12T12:44:30 IST" duration-ms="6875" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- preCondition -->
+        <test-method signature="login()[pri:0, instance:testcase.AccountPage_TC_002@21282ed8]" started-at="2024-09-12T12:44:30 IST" name="login" finished-at="2024-09-12T12:44:35 IST" duration-ms="4712" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method is-config="true" signature="postCondition()[pri:0, instance:testcase.AccountPage_TC_002@21282ed8]" started-at="2024-09-12T12:44:35 IST" name="postCondition" finished-at="2024-09-12T12:44:35 IST" duration-ms="784" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- postCondition -->
+      </class> <!-- testcase.AccountPage_TC_002 -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite1 -->
+</testng-results>
