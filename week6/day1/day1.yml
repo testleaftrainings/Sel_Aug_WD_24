@@ -1,0 +1,187 @@
+-POM Parameterize
+-POM with Cucumber
+
+
+
+Static Parameterize:
+- Create input agrs inside the method
+-remove hardcoded value and replace the variable Name
+-pass the value in TestCase level
+
+Username and Password
+pages-Create Input agrs in method
+remove hardcoeded values and replace variable
+
+testcase
+Create Input agrs in method level
+lp.enterUserName("demosalesmanger").
+enterPassword("crmsfa")
+
+
+
+POM with Excel Integration:
+ create new Package as utils 
+ copy and paste from program perv porject
+ create folder and paste excel sheet
+
+Create data folder and have the excelsheets inside Login CreateLead
+Create a package called utils and have the ReadExcel java class inside
+Create sendData() and annotate with DataProvider and call the readExcel() and return
+Replace all the hardcoded data with input arguments in the required pages
+In the testClasses, use dataProvider attribute to receive the data and pass input arguments in the test method.
+Create setValues() in each testclass to mention the fileName and annotate with @BeforeTest
+
+
+How to Parameterize the data?
+	  1)Create a new package(utils) and copy the ReadExel class from the previous project or package 
+	  and paste it here
+	  2)Create a data folder and create excel sheets or copy and paste from previous project
+	  3)Declare the filedata globally in baseclass or PSM
+	  4)Create a method for @DataProvider and call the ReadExel class
+	  5)Integrate @Test with dataProvider attribute and add name
+	  6)Pass the inputs as arguments in the testcase method level and replace the hardcoded values
+	  7)In the testcase create a method to mention the ExcelFileName and annotate with @BeforeTest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Cucumber with POM:
+ - Create 4 packages
+     - base
+        Create BaseClass with common methods
+        BaseClass should extend AbstractTestNGCucumberTests
+     - features
+         Create feature files
+     - pages
+        Create classes for each page and each page should extend BaseClass
+     - runner
+        Create CucumberRunner class and , mention glue="pages"
+        The runner class should extend BaseClass
+		
+		
+For TestNG:
+if driver - > static
+   only sequential execution is possible
+
+For both sequential and parallel execution:
+   Create constrcutor in each of the pages  by removing static keyword from base class
+
+
+For Cucumber:
+In cucumber with POM - constructor is not allowed
+
+if driver - > static
+   only sequential execution is possible 
+   
+   
+If you want to have a hybrid framework combination of both TestNG + Cucumber
+
+ThreadLocal
+ It is a class in java for thread safety
+ InSide BaseClass or PSM :
+Steps: 1. private static final ThreadLocal<RemoteWebDriver> cDriver = new ThreadLocal<RemoteWebDriver>();
+
+ private:
+   It can be accessed only within the class
+ static final:
+    static+final = constant
+ ThreadLocal:
+   It is a class that provides thread-local variable
+
+2. Use setter and getter methods
+     Sets the current thread's copy of this thread-local variable
+      public void setDriver() {
+	cDriver.set( new ChromeDriver());
+
+}
+ Returns the value in the current thread's copy of this thread-local variable   
+public RemoteWebDriver getDriver() {
+	return cDriver.get();
+}
+
+@BeforeMethod
+public void precondition(){
+  setDriver();
+  then replace driver variable into getDriver()
+  getDriver().manage.window.max();
+}
+
+For TestNG _POM : - with driver as static -> sequential execution is possible
+ - To have sequential and parallel execution declare Parameterized Constructor in each pages
+
+For Cucumber_POM: 
+- Constructor should not be defined 
+- With driver as static 
+-> sequential execution is possible
+
+
+
+POM with ThreadLocal:
+
+Thread safety when working with variable ina multithreaded environment .
+it allows you to store and retrieve values that are specific to the current thread,
+
+-Java Class to create variable which can be used to read and write within a single thread. 
+ThreadLocal implementation of Webdriver will support TestNG parallel execution and cucumber
+
+DisAdvantage:
+
+As the constructor call is not allowed in cucumber
+To acheive parallel execution without constructor in cucumber
+
+==============================
+
+To support both cucumberand TestNG
+
+---supportsequential execution of both TestNG and cucumber
+
+--not able to use for parallel executionof TestNG because cucumber is not supporting driver to be passed inthe constructor.
+
+Add ThreadLocalclass in Basecall method 
+private static final ThreadLocal<RemoteWebDriver> tldriver=new ThreadLocal<RemoteWebDriver>();
+
+
+ThreadLocal:
+Java class which is used to access each thread independently
+ private static final ThreadLocal chDriver = new ThreadLocal();
+private: - This variable can be accessed only within the class static+final
+ - constant -> cannot change the value
+
+private static final ThreadLocal<RemoteWebDriver> tldriver=new ThreadLocal<RemoteWebDriver>();
+
+public void setDriver() {
+    //Sets the current thread's copy of this thread-local variable
+	chDriver.set(new ChromeDriver());
+}
+
+public ChromeDriver getDriver() {
+    //Returns the value in the current thread's copy of this thread-local variable
+	return chDriver.get();
+}
+
+add setDriver() method to @BeforeMethod
+
+Remove the constructor from all the pages
+
+Change the 'driver' to 'getDriver()'  in all the actions in the pages
+Encapsulation:
+ - getter and setter methods
